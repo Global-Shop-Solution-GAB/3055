@@ -1,0 +1,353 @@
+Program.Sub.ScreenSU.Start
+
+Gui.SS_Form1..Create
+Gui.SS_Form1..Caption("GCG Sales Activity File")
+Gui.SS_Form1..Size(4135,1825)
+Gui.SS_Form1..Position(0,0)
+Gui.SS_Form1..AlwaysOnTop(False)
+Gui.SS_Form1..FontName("Arial")
+Gui.SS_Form1..FontSize(8)
+Gui.SS_Form1..ForeColor(0)
+Gui.SS_Form1..Backcolor(-2147483633)
+Gui.SS_Form1..ControlBox(True)
+Gui.SS_Form1..MaxButton(False)
+Gui.SS_Form1..MinButton(False)
+Gui.SS_Form1..MousePointer(0)
+Gui.SS_Form1..Moveable(True)
+Gui.SS_Form1..Sizeable(False)
+Gui.SS_Form1..ShowInTaskBar(True)
+Gui.SS_Form1..TitleBar(True)
+
+Gui.SS_Form1..Event(unload,unload)
+
+Gui.SS_Form1.lbl_dtpBeg.Create(label)
+Gui.SS_Form1.lbl_dtpBeg.Caption("Beginning Date")
+Gui.SS_Form1.lbl_dtpBeg.Visible(True)
+Gui.SS_Form1.lbl_dtpBeg.Size(1800,200)
+Gui.SS_Form1.lbl_dtpBeg.Zorder(1)
+Gui.SS_Form1.lbl_dtpBeg.Position(100,135)
+Gui.SS_Form1.lbl_dtpBeg.Enabled(True)
+Gui.SS_Form1.lbl_dtpBeg.Alignment(0)
+Gui.SS_Form1.lbl_dtpBeg.FontName("Arial")
+Gui.SS_Form1.lbl_dtpBeg.FontSize(8)
+Gui.SS_Form1.lbl_dtpBeg.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_dtpBeg.BackStyle(0)
+Gui.SS_Form1.lbl_dtpBeg.Tooltip("")
+Gui.SS_Form1.lbl_dtpBeg.ControlGroup(0)
+
+
+Gui.SS_Form1.dtpBeg.Create(datepicker)
+Gui.SS_Form1.dtpBeg.Visible(True)
+Gui.SS_Form1.dtpBeg.Size(1800,345)
+Gui.SS_Form1.dtpBeg.Zorder(0)
+Gui.SS_Form1.dtpBeg.Position(100,335)
+Gui.SS_Form1.dtpBeg.Enabled(True)
+Gui.SS_Form1.dtpBeg.Checkbox(False)
+Gui.SS_Form1.dtpBeg.TabStop(True)
+Gui.SS_Form1.dtpBeg.TabIndex(1)
+Gui.SS_Form1.dtpBeg.Tooltip("")
+Gui.SS_Form1.dtpBeg.ControlGroup(0)
+Gui.SS_Form1.dtpBeg.DefaultValue("")
+
+
+Gui.SS_Form1.lbl_dtpEnd.Create(label)
+Gui.SS_Form1.lbl_dtpEnd.Caption("Ending Date")
+Gui.SS_Form1.lbl_dtpEnd.Visible(True)
+Gui.SS_Form1.lbl_dtpEnd.Size(1800,200)
+Gui.SS_Form1.lbl_dtpEnd.Zorder(1)
+Gui.SS_Form1.lbl_dtpEnd.Position(1985,135)
+Gui.SS_Form1.lbl_dtpEnd.Enabled(True)
+Gui.SS_Form1.lbl_dtpEnd.Alignment(0)
+Gui.SS_Form1.lbl_dtpEnd.FontName("Arial")
+Gui.SS_Form1.lbl_dtpEnd.FontSize(8)
+Gui.SS_Form1.lbl_dtpEnd.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_dtpEnd.BackStyle(0)
+Gui.SS_Form1.lbl_dtpEnd.Tooltip("")
+Gui.SS_Form1.lbl_dtpEnd.ControlGroup(0)
+
+
+Gui.SS_Form1.dtpEnd.Create(datepicker)
+Gui.SS_Form1.dtpEnd.Visible(True)
+Gui.SS_Form1.dtpEnd.Size(1800,345)
+Gui.SS_Form1.dtpEnd.Zorder(0)
+Gui.SS_Form1.dtpEnd.Position(1985,335)
+Gui.SS_Form1.dtpEnd.Enabled(True)
+Gui.SS_Form1.dtpEnd.Checkbox(False)
+Gui.SS_Form1.dtpEnd.TabStop(True)
+Gui.SS_Form1.dtpEnd.TabIndex(2)
+Gui.SS_Form1.dtpEnd.Tooltip("")
+Gui.SS_Form1.dtpEnd.ControlGroup(0)
+Gui.SS_Form1.dtpEnd.DefaultValue("")
+
+
+Gui.SS_Form1.cmdOk.Create(button)
+Gui.SS_Form1.cmdOk.Caption("Ok")
+Gui.SS_Form1.cmdOk.Visible(True)
+Gui.SS_Form1.cmdOk.Size(1000,360)
+Gui.SS_Form1.cmdOk.Zorder(0)
+Gui.SS_Form1.cmdOk.Position(100,850)
+Gui.SS_Form1.cmdOk.Enabled(True)
+Gui.SS_Form1.cmdOk.FontName("Arial")
+Gui.SS_Form1.cmdOk.FontSize(8)
+Gui.SS_Form1.cmdOk.TabStop(True)
+Gui.SS_Form1.cmdOk.TabIndex(3)
+Gui.SS_Form1.cmdOk.Tooltip("")
+Gui.SS_Form1.cmdOk.ControlGroup(0)
+Gui.SS_Form1.cmdOk.DefaultValue("")
+
+Gui.SS_Form1.cmdOk.Event(click,cmdok_click)
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.File.Define("Source",String)
+Variable.UDT.File.Define("SubSeg",String)
+Variable.UDT.File.Define("TP",String)
+Variable.UDT.File.Define("PPC",String)
+Variable.UDT.File.Define("PC",String)
+Variable.UDT.File.Define("Affiliation",String)
+Variable.UDT.File.Define("Country",String)
+Variable.UDT.File.Define("Industry",String)
+Variable.UDT.File.Define("YTD",String)
+Variable.UDT.File.Define("SalesOffice",String)
+Variable.UDT.File.Define("Plant",String)
+Variable.UDT.File.Define("Portfolio",String)
+Variable.UDT.File.Define("PL",String)
+Variable.UDT.File.Define("Market",String)
+Variable.UDT.File.Define("Change_Date",String,Change_Date)
+Variable.UDT.File.Define("Order_No",String,Order_No)
+Variable.UDT.File.Define("GL_Account",String,GL_Account)
+Variable.UDT.File.Define("Record_No",String,Record_No)
+Variable.UDT.File.Define("Customer",String)
+Variable.UDT.File.Define("Amount",String,Amount)
+Variable.UDT.File.Define("Type",String)
+Variable.UDT.File.Define("Position",String,Position)
+Variable.uGlobal.uFile.Declare("File")
+
+Variable.UDT.AcctMap.Define("GSS_GL_Acct",String,GSS_GL_Acct)
+Variable.UDT.AcctMap.Define("SPI_GL_Acct",String,SPI_GL_Acct)
+Variable.UDT.AcctMap.Define("TP",String,Trading_Partner)
+Variable.UDT.AcctMap.Define("Order",String,SPI_Order)
+Variable.UDT.AcctMap.Define("PC",String,SPI_Profit_Cntr)
+Variable.UDT.AcctMap.Define("PPC",String,Partner_Profit_Cntr)
+Variable.uGlobal.uAcctMap.Declare("AcctMap")
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+
+F.ODBC.Connection!ConA.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+Gui.SS_Form1..Show
+
+Program.Sub.Main.End
+
+Program.Sub.unload.Start
+
+F.ODBC.Connection!ConA.Close
+f.Intrinsic.Control.End
+
+Program.Sub.unload.End
+
+program.sub.cmdok_click.start
+Gui.SS_Form1..Visible(false)
+
+F.Intrinsic.Control.CallSub(Readdata)
+F.Intrinsic.Control.CallSub(Writefile)
+F.Intrinsic.Control.CallSub(Unload)
+
+program.sub.cmdok_click.end
+
+Program.Sub.readData.Start
+
+V.Local.sSel.Declare(String)
+V.Local.sBegDate.Declare(String)
+V.Local.sEndDate.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sRetB.Declare(String)
+V.Local.sGL.Declare(String)
+V.Local.iFor.Declare(Long)
+
+F.Intrinsic.String.Format(V.Screen.SS_Form1!dtpBeg.Value,"YYYYMMDD",V.Local.sBegDate)
+F.Intrinsic.String.Format(V.Screen.SS_Form1!dtpEnd.Value,"YYYYMMDD",V.Local.sEndDate)
+
+' new order; position code = GG1101
+' order is considered new when extension  <> 0
+V.uGlobal.uFile.Redim(-1,-1)
+F.Intrinsic.String.Concat("select 'GG1101' as Position, Order_No, Record_No, Extension as Amount, Date_Order as Change_Date, GL_Account  from Order_Lines where Record_No >'0000' and Date_Order  between '",V.Local.sBegDate,"' and '",V.Local.sEndDate,"' and Qty_Ordered  <> 0 ",V.Local.sSel)
+F.ODBC.Connection!ConA.OpenLocalRecordsetRO("rstSel",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.ConA!rstSel.EOF,=,False)
+		F.Intrinsic.Variable.LoadUDTFromRecordset("ConA","rstSel","v.uGlobal.uFile",False,1000)
+	F.Intrinsic.Control.EndIf
+F.ODBC.ConA!rstSel.Close
+
+' an order could be placed without initial qty, check Order_Changes, for new orders, also
+F.Intrinsic.String.Concat("select 'GG1101' as Position, Order_No, Record_No, After as Amount, Change_Date, '' as GL_Account from Order_Changes where Field_Name ='Qty ordered' and After <> 0 and Change_Date between '",V.Local.sBegDate,"' and '",V.Local.sEndDate,"' ",V.Local.sSel)
+F.ODBC.Connection!ConA.OpenLocalRecordsetRO("rstSel",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.ConA!rstSel.EOF,=,False)
+		F.Intrinsic.Variable.LoadUDTFromRecordset("ConA","rstSel","v.uGlobal.uFile",True,1000)
+	F.Intrinsic.Control.EndIf
+F.ODBC.ConA!rstSel.Close
+
+' An order could be placed and the Quantity changed, within the same time period. DO NOT create duplicate records. Use the most recent.
+F.Intrinsic.Variable.UDTMultiQuickSort(V.uGlobal.uFile!Order_No,True,V.uGlobal.uFile!Order_No,True,V.uGlobal.uFile!Change_Date,True)
+F.Intrinsic.Variable.UDTMultiFlagDuplicates(V.uGlobal.uFile!Order_No,V.uGlobal.uFile!Order_No)
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uFile)
+
+' if the order Change is the most recent record, the GL Account will be blank.  Get the account for the order and add it to the record
+F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uFile!GL_Account,"",V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+F.Intrinsic.Control.For(V.Local.iFor,V.Local.sRet.LBound,V.Local.sRet.UBound,1)
+	F.Intrinsic.String.Concat("select GL_Account from Order_Lines where Order_No = '",V.uGlobal.uFile(v.Local.sRet(v.Local.iFor))!Order_No,"' and Record_No='",V.uGlobal.uFile(v.Local.sRet(v.Local.iFor))!Record_No,"' ",V.Local.sSel)
+	f.ODBC.Connection!ConA.ExecuteAndReturn(v.Local.sSel,v.Local.sRetB)
+
+	' could have been changed in the date range, but already shipped, so it it isn't found, look in history
+	F.Intrinsic.Control.If(V.Local.sRetB.Trim,=,"")
+		F.Intrinsic.String.Concat("select GL_Account from Order_Hist_Line where Order_No = '",V.uGlobal.uFile(v.Local.sRet(v.Local.iFor))!Order_No,"' and Order_Line ='",V.uGlobal.uFile(v.Local.sRet(v.Local.iFor))!Record_No,"' ",V.Local.sSel)
+		f.ODBC.Connection!ConA.ExecuteAndReturn(v.Local.sSel,v.Local.sRetB)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.If(V.Local.sRetB.Trim,<>,"")
+		F.Intrinsic.String.Split(V.Local.sRetB,"#$#",V.Local.sRetB)
+		F.Intrinsic.String.Split(V.Local.sRetB(0),"*!*",V.Local.sRetB)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Variable.UDTMultiSeekSet(V.uGlobal.uFile!Order_No,V.uGlobal.uFile(v.Local.sRet(0))!Order_No,V.uGlobal.uFile!Record_No,V.uGlobal.uFile(v.Local.sRet(0))!Record_No,V.uGlobal.uFile!GL_Account,V.Local.sRetB(0).Trim)
+
+F.Intrinsic.Control.Next(V.Local.iFor)
+
+
+F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uFile!Type,"Type")
+' get invoiced items
+F.Intrinsic.String.Concat("select  'GG1101' as Position, Order_No, '' as Record_No, Amt_Invoice as Amount, Date_Invoice as Change_Date, GL_Account, 'INV' as Type  from AR_Open_Items where Batch_Code ='10'  and Date_Invoice_Cymd  between '",V.Local.sBegDate,"' and '",V.Local.sEndDate,"' ",V.Local.sSel)
+F.ODBC.Connection!ConA.OpenLocalRecordsetRO("rstSel",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.ConA!rstSel.EOF,=,False)
+		F.Intrinsic.Variable.LoadUDTFromRecordset("ConA","rstSel","v.uGlobal.uFile",True,1000)
+	F.Intrinsic.Control.EndIf
+F.ODBC.ConA!rstSel.Close
+
+' go ahead and set Source on the udt, since all of these will be the same
+F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uFile!Source,"9404")
+
+' put map information into a udt for easy reference
+V.uGlobal.uAcctMap.Redim(-1,-1)
+F.ODBC.Connection!ConA.OpenRecordsetRO("rstSel","select GSS_GL_Acct, SPI_GL_Acct, Trading_Partner, SPI_Order, SPI_Profit_Cntr, Partner_Profit_Cntr from GSS_SAP_Acct_Map order by GSS_GL_Acct")
+	F.Intrinsic.Control.If(V.ODBC.ConA!rstSel.EOF,=,False)
+		F.Intrinsic.Variable.LoadUDTFromRecordset("ConA","rstSel","V.uGlobal.uAcctMap",False,1000)
+	F.Intrinsic.Control.EndIf
+F.ODBC.ConA!rstSel.Close
+
+Program.Sub.readData.End
+
+Program.Sub.writeFile.Start
+
+' Source-Always �9404�
+' Sub-Seg-leave blank
+' Position-see POSITION note,below
+' TP-default 0, new field from table created on quote 4707
+' PPC-default 0, new fieldf rom table created on quote 4707
+' Amount-Order_Lines.Extension,or AR_Open_Items.Amount_Invoice(0.00, not thousands separator)
+' PC-new field from table created on quote 4707
+' Customer-leave blank
+' Affiliation-leave blank
+' Country--leave blank
+' Industry-leave blank
+' YTD Amount-leave blank
+' Sales Office-leave blank
+' Plant-leave blank
+' Portfolio-leave blank
+' Product Line-leave blank
+' Market Segment-leave blank
+
+
+V.Local.iFor.Declare(Long)
+V.Local.sRet.Declare(String)
+V.Local.sRetB.Declare(String)
+V.Local.sSel.Declare(String)
+V.Local.sUDT.Declare(String)
+V.Local.sVals.Declare(String)
+V.Local.sValsB.Declare(String)
+V.Local.sFileName.Declare(String)
+V.Local.sDate.Declare(String)
+V.Local.iHndl.Declare(Long)
+V.Local.sGL.Declare(String)
+
+' file name
+F.Intrinsic.String.Format(V.Screen.SS_Form1!dtpBeg.Value,"MMDDYYYY",V.Local.sDate)
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\Sales_Activity_",V.Local.sDate,".csv",V.Local.sFileName)
+F.Intrinsic.File.GetHandle(V.Local.iHndl)
+
+F.Intrinsic.File.OpenForWrite(V.Local.sFileName,V.Local.iHndl)
+F.Intrinsic.Control.For(V.Local.iFor,V.uGlobal.uFile!GL_Account.LBound,V.uGlobal.uFile!GL_Account.UBound,1)
+
+	' format amount
+	F.Intrinsic.String.Format(V.uGlobal.uFile(v.Local.iFor)!Amount,"0.00",V.uGlobal.uFile(v.Local.iFor)!Amount)
+
+	' get map information
+	F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uAcctMap!GSS_GL_Acct,V.uGlobal.uFile(v.Local.iFor)!GL_Account,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		V.uGlobal.uFile(v.Local.iFor)!PC.Set(V.uGlobal.uAcctMap(v.Local.sRet(0))!PC)
+		V.uGlobal.uFile(v.Local.iFor)!PPC.Set(V.uGlobal.uAcctMap(v.Local.sRet(0))!PPC)
+		V.uGlobal.uFile(v.Local.iFor)!TP.Set(V.uGlobal.uAcctMap(v.Local.sRet(0))!TP)
+		V.Local.sGL.Set(V.uGlobal.uAcctMap(v.Local.sRet(0))!SPI_GL_Acct)
+	F.Intrinsic.Control.EndIf
+
+	' set deaults
+	F.Intrinsic.Variable.UDTMultiSeekSet(V.uGlobal.uFile!TP,"",V.uGlobal.uFile!TP,"0")
+	F.Intrinsic.Variable.UDTMultiSeekSet(V.uGlobal.uFile!PPC,"",V.uGlobal.uFile!PPC,"0")
+
+	' write GG1101 line
+	f.Intrinsic.Variable.UDTPositionToString(v.uGlobal.uFile,"Source*!*SubSeg*!*Position*!*TP*!*PPC*!*Amount*!*PC*!*Customer*!*Affiliation*!*Country*!*Industry*!*YTD*!*SalesOffice*!*Plant*!*Portfolio*!*PL*!*Market",v.Local.iFor,",",v.Local.sVals)
+	F.Intrinsic.File.WriteLine(V.Local.iHndl,V.Local.sVals)
+
+	' GG1102 - Planned Cost (not used)
+
+	' write GG1201 - Actual Revenue
+	' If associated Spiridion GL Account starts with a 5 and there is an Internal Order
+	F.Intrinsic.String.Left(V.Local.sGL,1,V.Local.sRetB)
+	F.Intrinsic.Control.If(V.uGlobal.uFile(v.Local.iFor)!Type,=,"INV")
+		F.Intrinsic.Control.If(V.Local.sRetB,=,"5")
+		F.Intrinsic.Control.AndIf(V.uGlobal.uAcctMap(v.Local.sRet(0))!Order,<>,"")
+			F.Intrinsic.String.Replace(V.Local.sVals,"GG1101","GG1201",V.Local.sValsB)
+			F.Intrinsic.File.WriteLine(V.Local.iHndl,V.Local.sValsB)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	' write GG1202 - Actual COS
+	' If associated Spiridion GL Account starts with a 6 and there is an Internal Order
+	F.Intrinsic.String.Left(V.Local.sGL,1,V.Local.sRetB)
+	F.Intrinsic.Control.If(V.uGlobal.uFile(v.Local.iFor)!Type,=,"INV")
+		F.Intrinsic.Control.If(V.Local.sRetB,=,"6")
+		F.Intrinsic.Control.AndIf(V.uGlobal.uAcctMap(v.Local.sRet(0))!Order,<>,"")
+			F.Intrinsic.String.Replace(V.Local.sVals,"GG1101","GG1202",V.Local.sValsB)
+			F.Intrinsic.File.WriteLine(V.Local.iHndl,V.Local.sValsB)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+	' GG1398 - Backlog Correction (not used)
+
+F.Intrinsic.Control.Next(V.Local.iFor)
+F.Intrinsic.File.CloseFile(V.Local.iHndl)
+
+F.Intrinsic.Task.ShellExec(V.Local.iHndl,"OPEN",V.Local.sFileName,"","",1)
+
+
+Program.Sub.writeFile.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_Sales_Activity$}$JCT$}$7/22/2013$}$False
+${$2$}$$}$$}$0$}$4$}$Tables$}$7/22/2013 1:27:19 PM$}$This script uses data from tables that are created and populated per quote 4707
+${$3$}$0$}$$}$-1$}$-1$}$$}$1/1/1900$}$for Siemens quote 4775
+creates a csv file
+custom hook/menu item
+Program.Sub.Comments.End
+Program.Sub.ScreenSS.Start
+SS_Form1{{CAPTION::GCG Sales Activity File
+SS_Form1.CTRL{{NAME::dtpBeg\\TYPE::6\\CAPTION::Beginning Date\\TABSTOP::1\\GROUP::1\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::dtpEnd\\TYPE::6\\CAPTION::Ending Date\\TABSTOP::2\\GROUP::1\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::cmdOk\\TYPE::5\\CAPTION::Ok\\TABSTOP::3\\GROUP::2\\BROWSER::0\\SIZE::1
+
+Program.Sub.ScreenSS.End
+
